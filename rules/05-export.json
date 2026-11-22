@@ -1,0 +1,14 @@
+{
+  "id": "DL-EXPORT-UNCONTROLLED",
+  "title": "存在数据导出/下载特征，但全文没有审批与留痕说明",
+  "severity": "high",
+  "source": "《数据安全法》第29条 —— 发现数据安全风险应立即处置；《个人信息保护法》第55条 —— 向其他处理者提供个人信息前应做影响评估（PIA）",
+  "advice": "全量导出（export / 批量下载 / dump）是数据外泄的主通道。给这类操作加审批流：谁申请、谁批准、导出到哪、多久销毁。文档里写清楚流程，代码里留操作日志。",
+  "check": {
+    "type": "files-lack",
+    "pattern": "审批|留痕|水印|watermark|approval|audit[ _-]?log|操作日志|销毁",
+    "flags": "gi",
+    "paths": ["**/*.md", "**/*.txt"],
+    "when": "(?:全量导出|批量导出|批量下载|全库导出|export\\s+(?:all|full)|mysqldump|数据导出)"
+  }
+}

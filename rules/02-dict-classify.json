@@ -1,0 +1,14 @@
+{
+  "id": "DL-DICT-CLASSIFY-MISSING",
+  "title": "出现公民敏感字段特征，但没有数据字典/分类分级说明",
+  "severity": "high",
+  "source": "《数据安全法》第21条 —— 国家建立数据分类分级保护制度；《个人信息保护法》第51条 —— 对个人信息实行分类管理",
+  "advice": "建数据字典（data-dictionary.md / schema 注释）：每个字段标注「一般/敏感/敏感-个人」级别与处理方式。身份证、手机号、银行卡字段必须显式分级，不能混在普通字段里。",
+  "check": {
+    "type": "files-lack",
+    "pattern": "数据字典|data[ _-]?dictionary|字段说明|分类分级|字段分级|敏感等级|sensitivity[ _-]?level",
+    "flags": "gi",
+    "paths": ["**/*.md", "**/*.txt", "**/*.json", "**/*.yml", "**/*.yaml"],
+    "when": "(?:id_card|idcard|身份证|手机号|bank_card|银行卡|护照|passport|社保号)"
+  }
+}

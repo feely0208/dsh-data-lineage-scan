@@ -1,0 +1,55 @@
+{
+  "name": "@deepwhale-cn/dsh-data-lineage-scan",
+  "version": "0.1.0",
+  "description": "个人信息从哪来→到哪去→谁有权访问",
+  "type": "module",
+  "license": "MIT",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "plugin",
+    "skill",
+    "data-lineage-scan"
+  ],
+  "files": [
+    "lib",
+    "skill",
+    "bin",
+    "docs",
+    "cordis.patch.yml",
+    "tests/fixtures",
+    "README.md"
+  ],
+  "main": "./lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "dsh-data-lineage-scan": "bin/cli.mjs"
+  },
+  "engines": {
+    "dsh": ">=0.1.0-rc.6 <0.3.0",
+    "node": ">=18"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/dsh-skill": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/feely0208/dsh-data-lineage-scan.git"
+  },
+  "homepage": "https://www.deepwhale.org.cn/skills.html",
+  "bugs": {
+    "url": "https://github.com/feely0208/dsh-data-lineage-scan/issues"
+  },
+  "dependencies": {
+    "@deepwhale-cn/dsh-guard-core": "^0.10.1"
+  }
+}

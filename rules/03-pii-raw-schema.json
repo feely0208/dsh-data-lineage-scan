@@ -1,0 +1,14 @@
+{
+  "id": "DL-PII-RAW-SCHEMA",
+  "title": "建表/接口定义中明文出现公民个人信息字段",
+  "severity": "high",
+  "source": "《个人信息保护法》第51条 —— 应采取相应的加密、去标识化等安全技术措施",
+  "advice": "建表语句或接口 schema 里直接出现 id_card / bank_card / mobile 等字段时，确认三件事：① 是否必须明文存储（能否哈希/脱敏/加密）；② 数据字典里是否已分级；③ 访问是否有最小权限控制。命中不一定是违规，但每处都要能回答这三问。",
+  "check": {
+    "type": "file-pattern",
+    "pattern": "(?:id_card|idcard|id_number|bank_card|bankcard|mobile_phone|phone_number|social_credit)",
+    "flags": "gi",
+    "exts": [".sql", ".py", ".yml", ".yaml", ".json", ".txt", ".md"],
+    "max": 20
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "id": "DL-LINEAGE-DOC-MISSING",
+  "title": "项目存在数据管道/ETL 特征，但全文没有数据血缘说明",
+  "severity": "high",
+  "source": "《数据安全法》第27条 —— 开展数据处理活动应当依法建立健全全流程数据安全管理制度；GB/T 36073-2018（DCMM）数据血缘管理域",
+  "advice": "补一份 LINEAGE.md（或 lineage/ 目录）：列出每张核心表的上游来源、加工逻辑、下游消费方。数据出了问题查不到源头、改了字段不知道影响谁，都是缺血缘的代价。",
+  "check": {
+    "type": "files-lack",
+    "pattern": "血缘|lineage|上游|下游|来源表|目标表|数据流向|source[ _-]?table|downstream",
+    "flags": "gi",
+    "paths": ["**/*.md", "**/*.txt"],
+    "when": "(?:airflow|dbt|dagster|nifi|datax|kettle|ETL|数据同步|数据管道|调度任务|data[ _-]?pipeline)"
+  }
+}
