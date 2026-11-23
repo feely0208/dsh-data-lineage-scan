@@ -24,3 +24,11 @@ DL-LINEAGE-DOC-MISSING / DL-DICT-CLASSIFY-MISSING / DL-PII-RAW-SCHEMA / DL-RETEN
 ## License
 
 MIT © 温州深鲸智能科技有限公司
+
+## 安装（DSH）
+
+```bash
+dsh plugin --profile web add @deepwhale-cn/dsh-data-lineage-scan
+```
+
+也可以 `npm i @deepwhale-cn/dsh-data-lineage-scan`，或从本仓库直接 `dsh plugin install ./`。
